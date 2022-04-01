@@ -294,6 +294,17 @@
           }
         ];
 
+        const DEFAULT_COMPANY_COLOR = 'grey';
+        const COMPANY_COLORS = {
+          'goodlife': '#EF3025',
+          'carfax': '#1294EF'
+        };
+
+        const companyNameTemplate = (company) => {
+          const color = COMPANY_COLORS[company.toLowerCase()] || DEFAULT_COMPANY_COLOR;
+          return `<span style="color: ${color}">${company}</span>`
+        }
+
         const $sinceDiv = document.querySelector("#since");
         const $sinceTimer = document.querySelector("#since-timer");
         const $upcomingDiv = document.querySelector("#upcoming");
@@ -357,7 +368,7 @@
 
           for (const record of upcoming) {
             const h4 = document.createElement("H4");
-            h4.innerHTML = `${record.lastDay.fromNow(true)} until ${record.name} leaves for ${record.goingTo}. <small>(${record.lastDay.format("YYYY-MM-DD")})</small>`;
+            h4.innerHTML = `${record.lastDay.fromNow(true)} until ${record.name} leaves ${companyNameTemplate(record.comingFrom)} for ${companyNameTemplate(record.goingTo)}. <small>(${record.lastDay.format("YYYY-MM-DD")})</small>`;
             $upcomingDiv.appendChild(h4);
           }
         }
@@ -371,7 +382,7 @@
 
           for (const record of history) {
             const p = document.createElement("P");
-            p.innerHTML = `${record.name} left ${record.comingFrom} for ${record.goingTo} about ${record.lastDay.fromNow()}. <small>(${record.lastDay.format("YYYY-MM-DD")})</small>`;
+            p.innerHTML = `${record.name} left ${companyNameTemplate(record.comingFrom)} for ${companyNameTemplate(record.goingTo)} about ${record.lastDay.fromNow()}. <small>(${record.lastDay.format("YYYY-MM-DD")})</small>`;
             $historyDiv.appendChild(p);
           }
         } else {
