@@ -1,0 +1,68 @@
+#since,
+#upcoming,
+#history {
+    display: none;
+}
+
+.container {
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+small {
+    color: #45A29E;
+}
+
+.total {
+    margin: 10px;
+    padding: 5px;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 10%;
+    user-select: none;
+    font-family: Helvetica;
+}
+
+.total:hover {
+    background-color: #45A29E;
+    color: #0b0c10;
+}
+
+.total.selected {
+    background-color: #1F2833;
+    color: #66FCF1;
+}
+
+h3 {
+    color: #45A29E;
+
+}
+
+h4 {
+    margin: 5px;
+    font-size: 2.4rem;
+}
+
+h4>small {
+    font-size: 2.2rem;
+}
+
+p {
+    margin: 3px;
+    transition: height 2s;
+}
+
+p>small {
+    font-size: 1.2rem;
+}
+
+hr {
+    margin: 20px;
+}
+
+html,
+body {
+    text-align: center;
+    background-color: #0b0c10;
+    color: #C5C6C7;
+}
