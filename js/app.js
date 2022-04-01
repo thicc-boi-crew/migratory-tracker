@@ -3,27 +3,20 @@ window.addEventListener("load", async () =>
     const DateTime = luxon.DateTime;
 
     let yearFilter = null;
-    let departingCompanyFilter = null;
-
-    const DEFAULT_COMPANY_COLOR = 'grey';
-    const COMPANY_COLORS = {
-        'goodlife': '#EF3025',
-        'carfax': '#1294EF'
-    };
-
-    const companyNameTemplate = (company) =>
-    {
-        const color = COMPANY_COLORS[company.toLowerCase()] || DEFAULT_COMPANY_COLOR;
-        return `<span style="color: ${color}">${company}</span>`;
-    };
+    let companyFilter = null;
 
     const $sinceDiv = document.querySelector("#since");
     const $sinceTimer = document.querySelector("#since-timer");
+
     const $upcomingHeader = document.querySelector("#upcoming-header");
     const $upcomingDiv = document.querySelector("#upcoming");
-    const $historyDiv = document.querySelector("#history");
+
     const $totalDiv = document.querySelector("#totals");
 
+    const $filtersDiv = document.querySelector("#filters");
+    const $filtersList = document.querySelector("#filters-list");
+
+    const $historyDiv = document.querySelector("#history");
 
     const data = await (await fetch("data.json")).json();
     for (let i = 0, len = data.length; i < len; i++)
@@ -31,7 +24,30 @@ window.addEventListener("load", async () =>
         data[i].lastDay = DateTime.fromFormat(data[i].lastDay, "yyyy-LL-dd HH:mm");
     }
 
-    // yearly counts
+    // Company Colours + Company Filter
+    const DEFAULT_COMPANY_COLOR = 'grey';
+    const COMPANY_COLORS = {
+        'goodlife': '#EF3025',
+        'carfax': '#1294EF'
+    };
+
+    const companyNameSpan = (company) =>
+    {
+        const color = COMPANY_COLORS[company.toLowerCase()] || DEFAULT_COMPANY_COLOR;
+
+        const $span = document.createElement("span");
+        $span.classList.add("company-label");
+        $span.style.color = color;
+        $span.innerHTML = `${company}`;
+        $span.onclick = () =>
+        {
+            companyFilter = company;
+            updateFilters();
+        };
+        return $span;
+    };
+
+    // Year counts + year filter
     const years = data.reduce((set, rec) => set.add(rec.lastDay.year), new Set());
     for (const year of years)
     {
@@ -41,7 +57,7 @@ window.addEventListener("load", async () =>
         $span.innerHTML = `${year}: ${count}`;
         $span.onclick = () =>
         {
-            const $spans = document.querySelectorAll(".selected").forEach(s => s.classList.remove("selected"));
+            document.querySelectorAll(".selected").forEach(s => s.classList.remove("selected"));
             if (yearFilter === Number(year))
             {
                 yearFilter = null;
@@ -51,7 +67,7 @@ window.addEventListener("load", async () =>
                 $span.classList.add("selected");
                 yearFilter = Number(year);
             }
-            renderHistoric();
+            updateFilters();
         };
         $totalDiv.appendChild($span);
     }
@@ -78,14 +94,14 @@ window.addEventListener("load", async () =>
 
     // upcoming resignations
     const upcoming = sortedData
-        .filter((record, index, array) =>
+        .filter((record) =>
         {
             return record.lastDay > now;
         });
 
     // historic resignations
     const history = sortedData
-        .filter((record, index, array) =>
+        .filter((record) =>
         {
             return record.lastDay <= now;
         });
@@ -111,11 +127,57 @@ window.addEventListener("load", async () =>
 
         for (const record of upcoming)
         {
-            const h4 = document.createElement("H4");
-            h4.innerHTML = `${record.lastDay.toRelative(true)} until ${record.name} leaves ${companyNameTemplate(record.comingFrom)} for ${companyNameTemplate(record.goingTo)}. <small>(${record.lastDay.toFormat("yyyy-LL-dd")})</small>`;
-            $upcomingDiv.appendChild(h4);
+            const $h4 = document.createElement("H4");
+            $h4.innerHTML = `${record.lastDay.toRelative(true)} until ${record.name} leaves <comingFrom></comingFrom> for <goingTo></goingTo>. <small>(${record.lastDay.toFormat("yyyy-LL-dd")})</small>`;
+            $h4.replaceChild(companyNameSpan(record.comingFrom), $h4.querySelector("comingFrom"));
+            $h4.replaceChild(companyNameSpan(record.goingTo), $h4.querySelector("goingTo"));
+            $upcomingDiv.appendChild($h4);
         }
     }
+
+    let updateFilters = () =>
+    {
+        while ($filtersList.firstChild)
+        {
+            $filtersList.removeChild($filtersList.firstChild);
+        }
+
+        if (yearFilter || companyFilter)
+        {
+            $filtersDiv.classList.remove("hidden");
+            if (yearFilter)
+            {
+                const $span = document.createElement("SPAN");
+                $span.innerHTML = `Year: ${yearFilter}`;
+                $span.classList.add("filter");
+                $span.onclick = () =>
+                {
+                    yearFilter = null;
+                    document.querySelectorAll(".selected").forEach(s => s.classList.remove("selected"));
+                    updateFilters();
+                };
+                $filtersList.appendChild($span);
+            }
+
+            if (companyFilter)
+            {
+                const $span = document.createElement("SPAN");
+                $span.innerHTML = `Company: ${companyFilter}`;
+                $span.classList.add("filter");
+                $span.onclick = () =>
+                {
+                    companyFilter = null;
+                    updateFilters();
+                };
+                $filtersList.appendChild($span);
+            }
+        }
+        else
+        {
+            $filtersDiv.classList.add("hidden");
+        }
+        renderHistoric();
+    };
 
     let renderHistoric = () =>
     {
@@ -131,11 +193,13 @@ window.addEventListener("load", async () =>
             for (const record of history)
             {
                 if ((yearFilter === null || yearFilter === record.lastDay.year)
-                    && (departingCompanyFilter === null || departingCompanyFilter === record.comingFrom))
+                    && (companyFilter === null || companyFilter === record.comingFrom || companyFilter === record.goingTo))
                 {
-                    const p = document.createElement("P");
-                    p.innerHTML = `${record.name} left ${companyNameTemplate(record.comingFrom)} for ${companyNameTemplate(record.goingTo)} about ${record.lastDay.toRelative()}. <small>(${record.lastDay.toFormat("yyyy-LL-dd")})</small>`;
-                    $historyDiv.appendChild(p);
+                    const $p = document.createElement("P");
+                    $p.innerHTML = `${record.name} left <comingFrom></comingFrom> for <goingTo></goingTo> about ${record.lastDay.toRelative()}. <small>(${record.lastDay.toFormat("yyyy-LL-dd")})</small>`;
+                    $p.replaceChild(companyNameSpan(record.comingFrom), $p.querySelector("comingFrom"));
+                    $p.replaceChild(companyNameSpan(record.goingTo), $p.querySelector("goingTo"));
+                    $historyDiv.appendChild($p);
                 }
             }
         }
@@ -145,5 +209,5 @@ window.addEventListener("load", async () =>
         }
     };
 
-    renderHistoric();
+    updateFilters();
 });
