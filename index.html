@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Thanks for all the fish</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+      window.addEventListener("load", () => {
+        // Add new resignations to this array.
+        const data = [
+          {
+            name: "Brad Phillips",
+            lastDay: moment("2019-01-04 17:00"),
+            goingTo: "Carfax",
+          },
+          {
+            name: "Mathew Manton",
+            lastDay: moment("2019-02-15 17:00"),
+            goingTo: "Carfax",
+          },
+          {
+            name: "Adela Salkic",
+            lastDay: moment("2019-03-19 17:00"),
+            goingTo: "Carfax",
+          },
+          {
+            name: "Werner Uetz",
+            lastDay: moment("2019-04-12 17:00"),
+            goingTo: "Carfax",
+          },
+          {
+            name: "Tyson Seaborn",
+            lastDay: moment("2019-05-03 17:00"),
+            goingTo: "Autodata Solutions",
+          },
+          {
+            name: "Connor Montag",
+            lastDay: moment("2019-05-10 17:00"),
+            goingTo: "Carfax",
+          },
+          {
+            name: "Sean Arts",
+            lastDay: moment("2019-06-06 15:50"),
+            goingTo: "Carfax",
+          },
+          {
+            name: "Kyle DeGaust",
+            lastDay: moment("2019-06-07 15:05"),
+            goingTo: "Carfax",
+          },
+          {
+            name: "Philip Craig",
+            lastDay: moment("2019-07-12 15:00"),
+            goingTo: "Carfax",
+          },
+          {
+            name: "Brandon Sheppard",
+            lastDay: moment("2019-08-06 17:00"),
+            goingTo: "Leven Systems",
+          },
+          {
+            name: "Chris Frank",
+            lastDay: moment("2019-10-10 17:00"),
+            goingTo: "...",
+          },
+          {
+            name: "Jeremy Winter",
+            lastDay: moment("2019-10-24 17:00"),
+            goingTo: "Carfax",
+          },
+          {
+            name: "Dan Balint",
+            lastDay: moment("2019-10-24 17:00"),
+            goingTo: "Zouling",
+          },
+          {
+            name: "Anthony Heinrichs",
+            lastDay: moment("2019-10-31 17:00"),
+            goingTo: "Europe",
+          },
+          {
+            name: "Mike Marsman",
+            lastDay: moment("2019-11-12 17:00"),
+            goingTo: "...",
+          },
+          {
+            name: "James Betterley",
+            lastDay: moment("2019-11-12 17:00"),
+            goingTo: "...",
+          },
+          {
+            name: "Lindsay Robbins",
+            lastDay: moment("2019-11-15 17:00"),
+            goingTo: "Carfax",
+          },
+          {
+            name: "Sunny Chunilall",
+            lastDay: moment("2019-11-28 17:00"),
+            goingTo: ":(",
+          },
+          {
+            name: "Maurice Sewell",
+            lastDay: moment("2019-12-27 17:00"),
+            goingTo: "StarTech",
+          },
+          {
+            name: "Meagan Murray",
+            lastDay: moment("2019-12-27 17:00"),
+            goingTo: "CanadaLife",
+          },
+          {
+            name: "Steve Grooves",
+            lastDay: moment("2020-01-24 17:00"),
+            goingTo: "Start.ca",
+          },
+          {
+            name: "David Brad",
+            lastDay: moment("2020-01-31 17:00"),
+            goingTo: "Binnj",
+          },
+          {
+            name: "Bradley Elliott",
+            lastDay: moment("2020-01-31 17:00"),
+            goingTo: "Binnj",
+          },
+          {
+            name: "Joshua Geurts",
+            lastDay: moment("2020-01-31 17:00"),
+            goingTo: "Ophardt Hygiene",
+          },
+          {
+            name: "Alexander Smith",
+            lastDay: moment("2020-01-31 17:00"),
+            goingTo: "Carfax",
+          },
+          {
+            name: "Shikha Singh",
+            lastDay: moment("2020-02-05 17:00"),
+            goingTo: "Carfax",
+          },
+          {
+            name: "David Leonard",
+            lastDay: moment("2020-02-20 17:00"),
+            goingTo: "Carfax",
+          },
+	        {
+            name: "Dan Denunzio",
+            lastDay: moment("2020-02-28 17:00"),
+            goingTo: "Precision Nutrition",
+          },
+          {
+            name: "Steven Avery",
+            lastDay: moment("2020-02-28 17:00"),
+            goingTo: "Binnj",
+          },
+          {
+            name: "Kevin Donde",
+            lastDay: moment("2020-02-21 17:00"),
+            goingTo: "...",
+          },
+		      {
+            name: "Adam Carr",
+            lastDay: moment("2020-05-22 17:00"),
+            goingTo: "Start.ca",
+          },
+		      {
+            name: "Noorain Adeeb",
+            lastDay: moment("2020-05-28 17:00"),
+            goingTo: "Start.ca",
+          },
+		      {
+            name: "Mike McRorie",
+            lastDay: moment("2020-07-05 17:00"),
+            goingTo: "CanadaLife",
+		      },
+		      {
+            name: "Derek Brown",
+            lastDay: moment("2020-08-14 17:00"),
+            goingTo: "Improbable.io",
+          },
+		      {
+            name: "Spencer Milmine",
+            lastDay: moment("2020-08-14 17:00"),
+            goingTo: "Carfax",
+          },
+		      {
+            name: "Dima Nabhani",
+            lastDay: moment("2021-02-16 17:00"),
+            goingTo: "...",
+          },
+		      {
+            name: "Jaenuz Gorospe",
+            lastDay: moment("2021-01-29 17:00"),
+            goingTo: "Binnj",
+          },
+		      {
+            name: "David Cosman",
+            lastDay: moment("2021-03-29 17:00"),
+            goingTo: "Two Hat",
+          },
+		      {
+            name: "Brooke Herbert",
+            lastDay: moment("2021-04-21 17:00"),
+            goingTo: "Carfax",
+          },
+		      {
+            name: "Chris Janes",
+            lastDay: moment("2021-05-07 17:00"),
+            goingTo: "interVal",
+          },
+          {
+            name: "Trevor Horman",
+            lastDay: moment("2021-09-24 17:00"),
+            goingTo: "interVal",
+          },
+		      {
+            name: "Jon Pilon",
+            lastDay: moment("2021-12-24 12:00"),
+            goingTo: "Dell/Alienware",
+          }
+        ];
+
+        const $sinceDiv = document.querySelector("#since");
+        const $sinceTimer = document.querySelector("#since-timer");
+        const $upcomingDiv = document.querySelector("#upcoming");
+        const $historyDiv = document.querySelector("#history");
+        const $totalDiv = document.querySelector("#totals");
+
+        // yearly counts
+        const years = data.reduce((set, rec) => set.add(rec.lastDay.year()), new Set());
+        for (const year of years) {
+          const count = data.reduce((acc, record, index, array) => (acc += record.lastDay.year() === year ? 1 : 0), 0);
+          const $span = document.createElement("span");
+          $span.classList.add("total");
+          $span.innerHTML = `${year}: ${count}`;
+          $totalDiv.appendChild($span);
+        }
+
+        const now = moment();
+
+        // sort data by lastDay, then by name
+        var sortedData = data
+          .sort((recordA, recordB) => {
+            var result = 0;
+
+            if (recordA.lastDay.isBefore(recordB.lastDay))
+              result = 1;
+            else if (recordA.lastDay.isAfter(recordB.lastDay))
+              result = -1;
+            else if (recordA.name > recordB.name)
+              result = 1;
+            else if (recordA.name < recordB.name)
+              result = -1;
+
+            return result;
+          });
+
+        // upcoming resignations
+        const upcoming = sortedData
+          .filter((record, index, array) => {
+            return record.lastDay.isAfter(now);
+          });
+
+        // historic resignations
+        const history = sortedData
+          .filter((record, index, array) => {
+            return record.lastDay.isSameOrBefore(now);
+          });
+
+        // output upcoming resignations
+        if (upcoming === null || upcoming.length === 0) {
+          $sinceDiv.style.display = "block";
+          $upcomingDiv.style.display = "none";
+
+          const lastResignation = history[0];
+          $sinceTimer.innerHTML = `The last resignation was about ${lastResignation.lastDay.fromNow()}. <small>(${lastResignation.lastDay.format("YYYY-MM-DD")})</small>`;
+        } else {
+          $upcomingDiv.style.display = "block";
+          $sinceDiv.style.display = "none";
+          while ($upcomingDiv.firstChild) {
+            $upcomingDiv.removeChild($upcomingDiv.firstChild);
+          }
+
+          for (const record of upcoming) {
+            const h4 = document.createElement("H4");
+            h4.innerHTML = `${record.lastDay.fromNow(true)} until ${record.name} leaves for ${record.goingTo}. <small>(${record.lastDay.format("YYYY-MM-DD")})</small>`;
+            $upcomingDiv.appendChild(h4);
+          }
+        }
+
+        // output historic resignations
+        if (history !== null && history.length > 0) {
+          $historyDiv.style.display = "block";
+          while ($historyDiv.firstChild) {
+            $historyDiv.removeChild($historyDiv.firstChild);
+          }
+
+          for (const record of history) {
+            const p = document.createElement("P");
+            p.innerHTML = `${record.name} left for ${record.goingTo} about ${record.lastDay.fromNow()}. <small>(${record.lastDay.format("YYYY-MM-DD")})</small>`;
+            $historyDiv.appendChild(p);
+          }
+        } else {
+          $historyDiv.style.display = "none";
+        }
+      });
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <style>
+      #since,
+      #upcoming,
+      #history {
+        display: none;
+      }
+
+      .container {
+        margin-top: 75px;
+        margin-bottom: 50px;
+      }
+
+      small {
+        color: #bbbbbb;
+      }
+
+      .total {
+        margin: 10px;
+        font-size: 2rem;
+      }
+
+      h4 {
+        margin: 5px;
+        font-size: 2.4rem;
+      }
+
+      h4 > small {
+        font-size: 2.2rem;
+      }
+
+      p {
+        margin: 3px;
+        font-size: 1.2rem;
+      }
+      p > small {
+        font-size: 0.95rem;
+      }
+
+      hr {
+        margin: 20px;
+      }
+
+      html,
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="since">
+        <h4 id="since-timer"></h4>
+      </div>
+      <div id="upcoming"></div>
+      <hr />
+      <h4>Totals</h4>
+      <div id="totals"></div>
+      <hr />
+      <div id="history"></div>
+    </div>
+  </body>
+</html>
