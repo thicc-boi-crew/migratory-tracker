@@ -66,6 +66,12 @@
         "goingTo": "..."
     },
     {
+        "name": "Mathew Manton",
+        "lastDay": "2019-10-15 17:00",
+        "comingFrom": "Carfax",
+        "goingTo": "Two Hat"
+    },
+    {
         "name": "Jeremy Winter",
         "lastDay": "2019-10-24 17:00",
         "comingFrom": "Goodlife",
@@ -138,6 +144,12 @@
         "goingTo": "Binnj"
     },
     {
+        "name": "James Betterley",
+        "lastDay": "2020-01-12 17:00",
+        "comingFrom": "...",
+        "goingTo": "Two Hat"
+    },
+    {
         "name": "Joshua Geurts",
         "lastDay": "2020-01-31 17:00",
         "comingFrom": "Goodlife",
@@ -168,6 +180,12 @@
         "goingTo": "Precision Nutrition"
     },
     {
+        "name": "James Betterley",
+        "lastDay": "2020-02-28 17:00",
+        "comingFrom": "Two Hat",
+        "goingTo": "Binnj"
+    },
+    {
         "name": "Steven Avery",
         "lastDay": "2020-02-28 17:00",
         "comingFrom": "Goodlife",
@@ -178,6 +196,12 @@
         "lastDay": "2020-02-21 17:00",
         "comingFrom": "Goodlife",
         "goingTo": "..."
+    },
+    {
+        "name": "Kevin Donde",
+        "lastDay": "2020-03-21 17:00",
+        "comingFrom": "...",
+        "goingTo": "Two Hat"
     },
     {
         "name": "Adam Carr",
@@ -210,10 +234,16 @@
         "goingTo": "Carfax"
     },
     {
+        "name": "Mathew Manton",
+        "lastDay": "2020-11-15 17:00",
+        "comingFrom": "Two Hat",
+        "goingTo": "..."
+    },
+    {
         "name": "Dima Nabhani",
         "lastDay": "2021-02-16 17:00",
         "comingFrom": "Goodlife",
-        "goingTo": "..."
+        "goingTo": "Vitruvi Software"
     },
     {
         "name": "Jaenuz Gorospe",
@@ -240,9 +270,33 @@
         "goingTo": "interVal"
     },
     {
+        "name": "Andrew McFalls",
+        "lastDay": "2021-05-15 17:00",
+        "comingFrom": "Goodlife",
+        "goingTo": "Carfax"
+    },
+    {
         "name": "David Brad",
         "lastDay": "2021-06-16 17:00",
         "comingFrom": "Binnj",
+        "goingTo": "Carfax"
+    },
+    {
+        "name": "Adam Carr",
+        "lastDay": "2021-06-22 17:00",
+        "comingFrom": "Start.ca",
+        "goingTo": "Fit4Less"
+    },
+    {
+        "name": "Mathew Manton",
+        "lastDay": "2021-06-15 17:00",
+        "comingFrom": "...",
+        "goingTo": "Hyper Hippo"
+    },
+    {
+        "name": "Kevin Donde",
+        "lastDay": "2021-09-21 17:00",
+        "comingFrom": "Two Hat",
         "goingTo": "Carfax"
     },
     {
@@ -252,10 +306,28 @@
         "goingTo": "interVal"
     },
     {
+        "name": "James Betterley",
+        "lastDay": "2021-11-28 17:00",
+        "comingFrom": "Binnj",
+        "goingTo": "Geotab"
+    },
+    {
         "name": "Jon Pilon",
         "lastDay": "2021-12-24 12:00",
         "comingFrom": "Goodlife",
         "goingTo": "Dell/Alienware"
+    },
+    {
+        "name": "Brooke Herbert",
+        "lastDay": "2022-03-24 17:00",
+        "comingFrom": "Carfax",
+        "goingTo": "Geotab"
+    },
+    {
+        "name": "Andrew McFalls",
+        "lastDay": "2022-03-27 17:00",
+        "comingFrom": "Carfax",
+        "goingTo": "GoodLife"
     },
     {
         "name": "Tibi Egyed",
