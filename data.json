@@ -354,9 +354,21 @@
         "goingTo": "SailPoint"
     },
     {
+        "name": "Kris Hartzke",
+        "lastDay": "2022-05-02 12:00",
+        "comingFrom": "Carfax",
+        "goingTo": "SailPoint"
+    },
+    {
         "name": "Ryan Picanco",
         "lastDay": "2022-05-06 12:00",
         "comingFrom": "Carfax",
         "goingTo": "SailPoint"
+    },
+    {
+        "name": "Joel Kennedy",
+        "lastDay": "2022-05-09 12:00",
+        "comingFrom": "Carfax",
+        "goingTo": "Meta"
     }
 ]
