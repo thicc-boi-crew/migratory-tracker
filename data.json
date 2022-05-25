@@ -376,5 +376,11 @@
         "lastDay": "2022-05-09 12:00",
         "comingFrom": "Carfax",
         "goingTo": "Meta"
+    },
+    {
+        "name": "Kyle DeGaust",
+        "lastDay": "2022-06-23 12:00",
+        "comingFrom": "Carfax",
+        "goingTo": "SailPoint"
     }
 ]
