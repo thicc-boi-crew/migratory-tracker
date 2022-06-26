@@ -336,6 +336,12 @@
         "goingTo": "Goodlife"
     },
     {
+        "name": "Some Guy",
+        "lastDay": "2022-02-18 12:00",
+        "comingFrom": "Carfax",
+        "goingTo": "Sailpoint"
+    },
+    {
         "name": "Tibi Egyed",
         "lastDay": "2022-03-18 12:00",
         "comingFrom": "Carfax",
@@ -376,6 +382,18 @@
         "lastDay": "2022-05-09 12:00",
         "comingFrom": "Carfax",
         "goingTo": "Meta"
+    },
+    {
+        "name": "Konrad Pfundner",
+        "lastDay": "2022-05-30 12:00",
+        "comingFrom": "Carfax",
+        "goingTo": "Priceline"
+    },
+    {
+        "name": "Konrad Pfundner",
+        "lastDay": "2022-06-13 12:00",
+        "comingFrom": "Priceline",
+        "goingTo": "SailPoint"
     },
     {
         "name": "Kyle DeGaust",
